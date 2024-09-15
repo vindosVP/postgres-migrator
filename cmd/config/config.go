@@ -21,7 +21,7 @@ type DB struct {
 
 func MustParse() *Config {
 	cfg := &Config{}
-	err := env.Parse(&cfg, env.Options{RequiredIfNoDef: true})
+	err := env.Parse(cfg, env.Options{RequiredIfNoDef: true})
 	if err != nil {
 		panic(fmt.Errorf("error parsing config: %w", err))
 	}
