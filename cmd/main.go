@@ -12,8 +12,17 @@ import (
 	"github.com/vindosVP/migrator/cmd/config"
 )
 
+var (
+	buildCommit = "N/A"
+	buildTime   = "N/A"
+	version     = "N/A"
+)
+
 func main() {
 	cfg := config.MustParse()
+	fmt.Printf("buildCommit: %s\n", buildCommit)
+	fmt.Printf("buildTime: %s\n", buildTime)
+	fmt.Printf("version: %s\n", version)
 	if _, err := os.Stat(cfg.MigrationsPath); errors.Is(err, os.ErrNotExist) {
 		panic(fmt.Errorf("failed to open migrations file: %w", err))
 	}
